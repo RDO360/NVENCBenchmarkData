@@ -111,6 +111,17 @@ The file follows this format.
 | height      | The segments' height in pixels. A value of zero means that the height is unchanged. |
 | time        | The required time, in seconds, to encode all the segments of the tile.              |
 
+## Ethics
+
+We have obtained the consent of the recognizable people in the videos to publish the data.
+Follow these rules when using the videos.
+
+- Don't use the videos in illegal, immoral, offensive, misleading or deceptive content.
+- Don't sell or redistribute the videos on other platforms.
+- Don't use the videos in your trade-mark, design-mark, trade-name, business name or service mark.
+- Videos containing recognizable trademarks, logos or brands cannot be used for commercial purposes.
+- Don't imply that any recognizable person or brand in the videos endorses your content or product.
+
 ## Citation
 
 **[Redacted]**
