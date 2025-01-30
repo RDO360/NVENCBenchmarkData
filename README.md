@@ -4,7 +4,7 @@ This repository contains the data produced during our NVENC benchmark.
 
 To reproduce the following results, first [install, run and learn about the use of our benchmarking tools](https://github.com/RDO360/PerformanceBenchmarks).
 
-If you use any part of this dataset, please [cite our work](#citation).
+If you use any part of this dataset, please [cite our work](#citation) and observe our [ethics code](#ethics).
 
 ## 360° videos
 
