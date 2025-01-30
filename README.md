@@ -57,7 +57,7 @@ We evaluated the spatial information (SI) and temporal information (TI) of the t
 siTi.ps1 -tiles "tile1.y4m", "tile2.y4m", "tile3.y4m", "tile4.y4m", "tile5.y4m", "tile6.y4m", "tile7.y4m", "tile8.y4m", "tile9.y4m", "tile10.y4m", "tile11.y4m", "tile12.y4m", "tile13.y4m", "tile14.y4m", "tile15.y4m", "tile16.y4m", "tile17.y4m", "tile18.y4m", "tile19.y4m", "tile20.y4m", "tile21.y4m", "tile22.y4m", "tile23.y4m", "tile24.y4m", "tile25.y4m", "tile26.y4m", "tile27.y4m", "tile28.y4m", "tile29.y4m", "tile30.y4m", "tile31.y4m", "tile32.y4m", "tile33.y4m", "tile34.y4m", "tile35.y4m", "tile36.y4m" -resultsFile siti_tiles.csv
 ```
 
-The result files for `Fireplace` (`siti_fireplace.csv`) and `Suburb` (`siti_suburb.csv`) are available in this repository.
+The result files for `Fireplace` (`siTiFireplace.csv`) and `Suburb` (`siTiSuburb.csv`) are available in this repository.
 The files follow this format.
 
 | Column Name | Description                            |
