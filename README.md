@@ -8,7 +8,7 @@ If you use any part of this dataset, please [cite our work](#citation).
 
 ## 360° videos
 
-The video material used in our benchmark consists of the following 360° videos that we filmed using an [Insta Pro 2 camera](https://www.insta360.com/fr/product/insta360-pro2).
+The video material used in our benchmark consists of the following 360° videos that we filmed using an [Insta Pro 2 camera](https://www.insta360.com/product/insta360-pro2).
 
 | Name      | Duration (s) | Download Links |
 |:----------|:------------:|:-----|
@@ -31,7 +31,7 @@ For the benchmark, we stitched the 360° videos in equirectangular projection us
 | Use Hardware Decoding       | 8                                |
 | Use Hardware Encoding       | Enabled                          |
 | Use nadir logo              | Disabled                         |
-| Resolution                  | 8K (7680 $ \times $ 3840 pixels) |
+| Resolution                  | 8K (7680 $\times$ 3840 pixels) |
 | Output Format               | MP4                              |
 | Codec Type                  | H265 codec                       |
 | Bitrate                     | 144 Mibps*                       |
