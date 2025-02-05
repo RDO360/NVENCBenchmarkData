@@ -10,10 +10,11 @@ If you use any part of this dataset, please [cite our work](#citation) and obser
 
 The video material used in our benchmark consists of the following 360° videos that we filmed using an [Insta Pro 2 camera](https://www.insta360.com/product/insta360-pro2).
 
-| Name      | Duration (s) | Download Links |
-|:----------|:------------:|:-----|
-| Fireplace | 227          | [Unstitched](TODO) <br> [Stitched Monoscopic (2D)](TODO) <br> [Stitched Stereoscopic (3D)](TODO) |
-| Suburb    | 245          | [Unstitched](TODO) <br> [Stitched Monoscopic (2D)](TODO) <br> [Stitched Stereoscopic (3D)](TODO) |
+| Name           | Duration (s) | Download Links |
+|:---------------|:------------:|:-----|
+| Fireplace      | 227          | [Unstitched](TODO) <br> [Stitched Monoscopic (2D)](TODO) <br> [Stitched Stereoscopic (3D)](TODO) |
+| Suburb         | 245          | [Unstitched](TODO) <br> [Stitched Monoscopic (2D)](TODO) <br> [Stitched Stereoscopic (3D)](TODO) |
+| VirtualReality | 253          | [Unstitched](https://drive.google.com/drive/folders/1HiJw3-ik9uMjILK7pkP7xLR5bXM1djKH?usp=sharing) <br> [Stitched Monoscopic (2D)](https://drive.google.com/file/d/1Os0p9dXafcvzEM4S_s4JxNQPExLcAEGm/view?usp=sharing) <br> [Stitched Stereoscopic (3D)](TODO) |
 
 For the benchmark, we stitched the 360° videos in equirectangular projection using the [Insta360 Stitcher 3.1.3 software](https://www.mantis-sub.com/support/) and the following parameters.
 
@@ -31,7 +32,7 @@ For the benchmark, we stitched the 360° videos in equirectangular projection us
 | Use Hardware Decoding       | 8                                |
 | Use Hardware Encoding       | Enabled                          |
 | Use nadir logo              | Disabled                         |
-| Resolution                  | 8K (7680 $\times$ 3840 pixels) |
+| Resolution                  | 8K (7680 $\times$ 3840 pixels)   |
 | Output Format               | MP4                              |
 | Codec Type                  | H265 codec                       |
 | Bitrate                     | 144 Mibps*                       |
@@ -54,10 +55,10 @@ ffmpeg -y -hide_banner -i video.mp4 -vf "crop=1280:640:0:0" -pix_fmt yuv420p til
 We evaluated the spatial information (SI) and temporal information (TI) of the tiles using the following command.
 
 ```powershell
-siTi.ps1 -tiles "tile1.y4m", "tile2.y4m", "tile3.y4m", "tile4.y4m", "tile5.y4m", "tile6.y4m", "tile7.y4m", "tile8.y4m", "tile9.y4m", "tile10.y4m", "tile11.y4m", "tile12.y4m", "tile13.y4m", "tile14.y4m", "tile15.y4m", "tile16.y4m", "tile17.y4m", "tile18.y4m", "tile19.y4m", "tile20.y4m", "tile21.y4m", "tile22.y4m", "tile23.y4m", "tile24.y4m", "tile25.y4m", "tile26.y4m", "tile27.y4m", "tile28.y4m", "tile29.y4m", "tile30.y4m", "tile31.y4m", "tile32.y4m", "tile33.y4m", "tile34.y4m", "tile35.y4m", "tile36.y4m" -resultsFile siti_tiles.csv
+siTi.ps1 -tiles "tile1.y4m", "tile2.y4m", "tile3.y4m", "tile4.y4m", "tile5.y4m", "tile6.y4m", "tile7.y4m", "tile8.y4m", "tile9.y4m", "tile10.y4m", "tile11.y4m", "tile12.y4m", "tile13.y4m", "tile14.y4m", "tile15.y4m", "tile16.y4m", "tile17.y4m", "tile18.y4m", "tile19.y4m", "tile20.y4m", "tile21.y4m", "tile22.y4m", "tile23.y4m", "tile24.y4m", "tile25.y4m", "tile26.y4m", "tile27.y4m", "tile28.y4m", "tile29.y4m", "tile30.y4m", "tile31.y4m", "tile32.y4m", "tile33.y4m", "tile34.y4m", "tile35.y4m", "tile36.y4m" -resultsFile siTiTiles.csv
 ```
 
-The result files for `Fireplace` (`siTiFireplace.csv`) and `Suburb` (`siTiSuburb.csv`) are available in this repository.
+The result files for `Fireplace` (`siTiFireplace.csv`), `Suburb` (`siTiSuburb.csv`) and `VirtualReality` (`siTiVirtualReality.csv`) are available in this repository.
 The files follow this format.
 
 | Column Name | Description                            |
@@ -72,10 +73,10 @@ The files follow this format.
 We evaluate the bitrate and visual quality of the tiles' segments according to their encoding parameters using the following command.
 
 ```powershell
-bitrateVmafBenchmark.ps1 -tiles "suburb5.y4m", "suburb13.y4m", "suburb19.y4m", "fireplace3.y4m", "fireplace5.y4m", "fireplace19.y4m", "fireplace33.y4m" -codecs "hevc_nvenc", "h264_nvenc" -presets p1, p2, p3, p4, p5, p6, p7 -qps 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 -heights 0, 320 -segmentTime 2 -segmentGOP 60 -segmentDirectory ".\segments" -dataFile fireplaceSuburbBitrateVmaf.csv -vmafLogDirectory "vmafLogs"
+bitrateVmafBenchmark.ps1 -tiles "suburb13.y4m", "suburb19.y4m", "suburb31.y4m", "fireplace5.y4m", "fireplace6.y4m", "fireplace33.y4m", "virtualReality24.y4m", "virtualReality26.y4m" -codecs "hevc_nvenc", "h264_nvenc" -presets p1, p2, p3, p4, p5, p6, p7 -qps 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 -heights 0, 320 -segmentTime 2 -segmentGOP 60 -segmentDirectory ".\segments" -dataFile fireplaceSuburbVirtualRealityBitrateVmaf.csv -vmafLogDirectory "vmafLogs"
 ```
 
-The results file for both `Fireplace` and `Suburb` (`fireplaceSuburbBitrateVmaf.csv`) is available in this repository.
+The results file for all videos (`fireplaceSuburbVirtualRealityBitrateVmaf.csv`) is available in this repository.
 The file follows this format.
 
 Download the [VMAF results files](TODO).
@@ -96,10 +97,10 @@ Download the [VMAF results files](TODO).
 We evaluate the time to encode all the segments of the tiles according to their encoding parameters using the following command.
 
 ```powershell
-encodingSpeedBenchmark.ps1 -tiles "suburb5.y4m", "suburb13.y4m", "suburb19.y4m", "fireplace3.y4m", "fireplace5.y4m", "fireplace19.y4m", "fireplace33.y4m" -codecs "hevc_nvenc", "h264_nvenc" -presets p1, p2, p3, p4, p5, p6, p7 -qps 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 -heights 0, 320 -repetitions 5 -segmentTime 2 -segmentGOP 60 -segmentDirectory ".\segments" -dataFile fireplaceSuburbSpeed.csv
+encodingSpeedBenchmark.ps1 -tiles "suburb13.y4m", "suburb19.y4m", "suburb31.y4m", "fireplace5.y4m", "fireplace6.y4m", "fireplace33.y4m", "virtualReality24.y4m", "virtualReality26.y4m" -codecs "hevc_nvenc", "h264_nvenc" -presets p1, p2, p3, p4, p5, p6, p7 -qps 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 -heights 0, 320 -repetitions 5 -segmentTime 2 -segmentGOP 60 -segmentDirectory ".\segments" -dataFile fireplaceSuburbVirtualRealityEncodingTime.csv
 ```
 
-The results file for both `Fireplace` and `Suburb` (`fireplaceSuburbSpeed.csv`) is available in this repository.
+The results file all videos (`fireplaceSuburbVirtualRealityEncodingTime.csv`) is available in this repository.
 The file follows this format.
 
 | Column Name | Description                                                                         |
