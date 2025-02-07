@@ -79,11 +79,12 @@ bitrateVmafBenchmark.ps1 -tiles "suburb13.y4m", "suburb19.y4m", "suburb31.y4m", 
 The results file for all videos (`fireplaceSuburbVirtualRealityBitrateVmaf.csv`) is available in this repository.
 The file follows this format.
 
-Download the [VMAF results files](TODO).
+Download the [VMAF logs files](https://drive.google.com/file/d/1N82Ca6uBmQ5JlUA_ZmwfTpxqEywr0tij/view?usp=sharing) for all segments.
 
 | Column Name | Description                                                                                                                      |
 |:------------|:---------------------------------------------------------------------------------------------------------------------------------|
 | tile        | The file name of the tile.                                                                                                       |
+| segment     | The index of the segment (starts at 0).                                                                                          |
 | codec       | The codec used to encode the segment.                                                                                            |
 | preset      | The preset used to encode the segment.                                                                                           |
 | qp          | The quantization parameters to encode the segment.                                                                               |
@@ -106,6 +107,7 @@ The file follows this format.
 | Column Name | Description                                                                         |
 |:------------|:------------------------------------------------------------------------------------|
 | tile        | The file name of the tile.                                                          |
+| repetition  | The index of the repetition (starts at 0).                                          |
 | codec       | The codec used to encode the segments.                                              |
 | preset      | The preset used to encode the segments.                                             |
 | qp          | The quantization parameters to encode the segments.                                 |
