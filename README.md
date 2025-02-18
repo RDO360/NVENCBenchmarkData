@@ -98,7 +98,7 @@ Download the [VMAF logs files](https://drive.google.com/file/d/1N82Ca6uBmQ5JlUA_
 We evaluate the time to encode all the segments of the tiles according to their encoding parameters using the following command.
 
 ```powershell
-encodingSpeedBenchmark.ps1 -tiles "suburb13.y4m", "suburb19.y4m", "suburb31.y4m", "fireplace5.y4m", "fireplace6.y4m", "fireplace33.y4m", "virtualReality24.y4m", "virtualReality26.y4m" -codecs "hevc_nvenc", "h264_nvenc" -presets p1, p2, p3, p4, p5, p6, p7 -qps 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 -heights 0, 320 -repetitions 5 -segmentTime 2 -segmentGOP 60 -segmentDirectory ".\segments" -dataFile fireplaceSuburbVirtualRealityEncodingTime.csv
+encodingTimeBenchmark.ps1 -tiles "suburb13.y4m", "suburb19.y4m", "suburb31.y4m", "fireplace5.y4m", "fireplace6.y4m", "fireplace33.y4m", "virtualReality24.y4m", "virtualReality26.y4m" -codecs "hevc_nvenc", "h264_nvenc" -presets p1, p2, p3, p4, p5, p6, p7 -qps 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 -heights 0, 320 -repetitions 5 -segmentTime 2 -segmentGOP 60 -segmentDirectory ".\segments" -dataFile fireplaceSuburbVirtualRealityEncodingTime.csv
 ```
 
 The results file all videos (`fireplaceSuburbVirtualRealityEncodingTime.csv`) is available in this repository.
