@@ -12,9 +12,9 @@ The video material used in our benchmark consists of the following 360° videos 
 
 | Name           | Duration (s) | Download Links |
 |:---------------|:------------:|:-----|
-| Fireplace      | 227          | [Unstitched](TODO) <br> [Stitched Monoscopic (2D)](TODO) <br> [Stitched Stereoscopic (3D)](TODO) |
-| Suburb         | 245          | [Unstitched](TODO) <br> [Stitched Monoscopic (2D)](TODO) <br> [Stitched Stereoscopic (3D)](TODO) |
-| VirtualReality | 253          | [Unstitched](https://drive.google.com/drive/folders/1HiJw3-ik9uMjILK7pkP7xLR5bXM1djKH?usp=sharing) <br> [Stitched Monoscopic (2D)](https://drive.google.com/file/d/1Os0p9dXafcvzEM4S_s4JxNQPExLcAEGm/view?usp=sharing) <br> [Stitched Stereoscopic (3D)](TODO) |
+| Fireplace      | 227          | [Unstitched](https://drive.google.com/drive/folders/1frlmlmifdCWKG49qPODrS5D0DePwRN9b?usp=sharing) <br> [Stitched Monoscopic (2D)](https://mega.nz/file/KH5DQLDS#l2zXviW31GlZjJiaYlelKCDgU722iI4_w6SZA8C-M8g) <br> [Stitched Stereoscopic (3D)](https://mega.nz/file/qCA3nA4S#_X_2Cox9nLeK79boyZOz8TlXpCbBBdGJRikODagC3ZA) |
+| Suburb         | 245          | [Unstitched](https://drive.google.com/drive/folders/1Kzkjj760CbdvMjUtqj-3w0OEdigf9511?usp=sharing) <br> [Stitched Monoscopic (2D)](https://drive.google.com/file/d/1sqyIkJpC4A5vrl9T0_--A5txX_zkNCc7/view?usp=sharing) <br> [Stitched Stereoscopic (3D)](https://drive.google.com/file/d/1mDn0OwUXhyeecqjA5kjAIFwlBUQDpWye/view?usp=sharing) |
+| VirtualReality | 253          | [Unstitched](https://drive.google.com/drive/folders/1HiJw3-ik9uMjILK7pkP7xLR5bXM1djKH?usp=sharing) <br> [Stitched Monoscopic (2D)](https://drive.google.com/file/d/1Os0p9dXafcvzEM4S_s4JxNQPExLcAEGm/view?usp=sharing) <br> [Stitched Stereoscopic (3D)](https://mega.nz/file/OWB1wIBY#5hRt-kmMrxzCopxQT2qF9fSqs97Cb-IpDYDbeQXqVw4) |
 
 For the benchmark, we stitched the 360° videos in equirectangular projection using the [Insta360 Stitcher 3.1.3 software](https://www.mantis-sub.com/support/) and the following parameters.
 
