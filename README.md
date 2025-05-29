@@ -114,6 +114,10 @@ The file follows this format.
 | height      | The segments' height in pixels. A value of zero means that the height is unchanged. |
 | time        | The required time, in seconds, to encode all the segments of the tile.              |
 
+<!-- ## Per Tile Encoding Speed Benchmark -->
+
+<!-- ## VMAF Speed -->
+
 ## Ethics
 
 We have obtained the consent of the recognizable people in the videos to publish the data.
