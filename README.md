@@ -131,4 +131,4 @@ Follow these rules when using the videos.
 
 ## Citation
 
-**[Redacted]**
+To be added after acceptance.
