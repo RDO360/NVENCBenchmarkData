@@ -1,8 +1,8 @@
 # NVENC Benchmark Data
 
-This repository contains the data produced during our NVENC benchmark.
+This repository contains the data produced during our NVENC benchmark for the paper *Benchmarking Hardware Encoding for Live 360° Video Tiled Streaming*.
 
-To reproduce the following results, first [install, run and learn about the use of our benchmarking tools](https://github.com/RDO360/PerformanceBenchmarks).
+To reproduce our results, first [install, run and learn about the use of our benchmarking tools](https://github.com/RDO360/PerformanceBenchmarks).
 
 If you use any part of this dataset, please [cite our work](#citation) and observe our [ethics code](#ethics).
 
@@ -68,18 +68,19 @@ The files follow this format.
 | si          | The spatial information of the frame.  |
 | ti          | The temporal information of the frame. |
 
-## Bitrate and Visual Quality Benchmark
+## Rate-distortion Benchmark
 
-We evaluate the bitrate and visual quality of the tiles' segments according to their encoding parameters using the following command.
+To calculate the rate-distortion of each tile, we first evaluate the bitrate and visual quality of their segments according to their encoding parameters using the following command.
 
 ```powershell
-bitrateVmafBenchmark.ps1 -tiles "suburb13.y4m", "suburb19.y4m", "suburb31.y4m", "fireplace5.y4m", "fireplace6.y4m", "fireplace33.y4m", "virtualReality24.y4m", "virtualReality26.y4m" -codecs "hevc_nvenc", "h264_nvenc" -presets p1, p2, p3, p4, p5, p6, p7 -qps 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 -heights 0, 320 -segmentTime 2 -segmentGOP 60 -segmentDirectory ".\segments" -dataFile fireplaceSuburbVirtualRealityBitrateVmaf.csv -vmafLogDirectory "vmafLogs"
+bitrateVmaf.ps1 -tiles "suburb13.y4m", "suburb19.y4m", "suburb31.y4m", "fireplace5.y4m", "fireplace6.y4m", "fireplace33.y4m", "virtualReality24.y4m", "virtualReality26.y4m" -codecs "hevc_nvenc", "h264_nvenc" -presets p1, p2, p3, p4, p5, p6, p7 -qps 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 -heights 0, 320 -segmentTime 2 -segmentGOP 60 -segmentDirectory ".\segments" -dataFile fireplaceSuburbVirtualRealityBitrateVmaf.csv -vmafLogDirectory "vmafLogs"
 ```
 
 The results file for all videos (`fireplaceSuburbVirtualRealityBitrateVmaf.csv`) is available in this repository.
 The file follows this format.
 
-Download the [VMAF logs files](https://drive.google.com/file/d/1N82Ca6uBmQ5JlUA_ZmwfTpxqEywr0tij/view?usp=sharing) for all segments.
+To get detailed information about the visual quality, download the [VMAF logs files](https://drive.google.com/file/d/1N82Ca6uBmQ5JlUA_ZmwfTpxqEywr0tij/view?usp=sharing) for all segments.
+Every file contains the PSNR (Y, Cb and Cr), VIF, VMAF and more of every frame.
 
 | Column Name | Description                                                                                                                      |
 |:------------|:---------------------------------------------------------------------------------------------------------------------------------|
@@ -98,7 +99,7 @@ Download the [VMAF logs files](https://drive.google.com/file/d/1N82Ca6uBmQ5JlUA_
 We evaluate the time to encode all the segments of the tiles according to their encoding parameters using the following command.
 
 ```powershell
-encodingTimeBenchmark.ps1 -tiles "suburb13.y4m", "suburb19.y4m", "suburb31.y4m", "fireplace5.y4m", "fireplace6.y4m", "fireplace33.y4m", "virtualReality24.y4m", "virtualReality26.y4m" -codecs "hevc_nvenc", "h264_nvenc" -presets p1, p2, p3, p4, p5, p6, p7 -qps 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 -heights 0, 320 -repetitions 5 -segmentTime 2 -segmentGOP 60 -segmentDirectory ".\segments" -dataFile fireplaceSuburbVirtualRealityEncodingTime.csv
+encodingTime.ps1 -tiles "suburb13.y4m", "suburb19.y4m", "suburb31.y4m", "fireplace5.y4m", "fireplace6.y4m", "fireplace33.y4m", "virtualReality24.y4m", "virtualReality26.y4m" -codecs "hevc_nvenc", "h264_nvenc" -presets p1, p2, p3, p4, p5, p6, p7 -qps 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 -heights 0, 320 -repetitions 5 -segmentTime 2 -segmentGOP 60 -segmentDirectory ".\segments" -dataFile fireplaceSuburbVirtualRealityEncodingTime.csv
 ```
 
 The results file all videos (`fireplaceSuburbVirtualRealityEncodingTime.csv`) is available in this repository.
@@ -114,9 +115,43 @@ The file follows this format.
 | height      | The segments' height in pixels. A value of zero means that the height is unchanged. |
 | time        | The required time, in seconds, to encode all the segments of the tile.              |
 
-<!-- ## Per Tile Encoding Speed Benchmark -->
+## Per Segment Encoding Speed Benchmark
 
-<!-- ## VMAF Speed -->
+We evaluate the time to encode every segment of the tiles according to their encoding parameters using the following command.
+
+```powershell
+perSegmentEncodingTime.ps1 -tiles "suburb13.y4m", "suburb19.y4m", "suburb31.y4m", "fireplace5.y4m", "fireplace6.y4m", "fireplace33.y4m", "virtualReality24.y4m", "virtualReality26.y4m" -codecs "hevc_nvenc", "h264_nvenc" -presets p1, p2, p3, p4, p5, p6, p7 -qps 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 -heights 0, 320 -repetitions 1 -segmentTime 2 -segmentGOP 60 -segmentDirectory ".\segments" -dataFile fireplaceSuburbVirtualRealitySegmentsEncodingTime.csv
+```
+
+The results file for all videos (`fireplaceSuburbVirtualRealitySegmentsEncodingTime.csv`) is available in this repository.
+The file follows this format.
+
+| Column Name | Description                                                                         |
+|:------------|:------------------------------------------------------------------------------------|
+| tile        | The file name of the tile.                                                          |
+| segment     | The index of the segment (starts at 0).                                             |
+| repetition  | The index of the repetition (starts at 0).                                          |
+| codec       | The codec used to encode the segments.                                              |
+| preset      | The preset used to encode the segments.                                             |
+| qp          | The quantization parameters to encode the segments.                                 |
+| height      | The segments' height in pixels. A value of zero means that the height is unchanged. |
+| time        | The required time, in seconds, to encode all the segments of the tile.              |
+
+## VMAF Speed
+
+We evaluate the computing speed of VMAF for every segment according to subsampling value using the following command.
+
+```
+ffmpeg -loglevel error -i comparedSegment.mp4 -i originalSegment.mp4 -filter_complex "libvmaf=feature=name=psnr:n_threads=8:n_subsample=2:log_path=log.json:log_fmt=json" -f null -
+```
+
+The results file (`vmafSpeed.csv`) is available in this repository.
+The file follows this format.
+
+| Column Name | Description                                                               |
+|:------------|:--------------------------------------------------------------------------|
+| subsampling | The subsampling value, i.e., to calculate scores only every $ N $ frames. |
+| speed       | The computing speed in frames per second.                                 |
 
 ## Ethics
 
